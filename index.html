@@ -3,61 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Processi Aziendali</title>
+    <title>DUE Maps</title>
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8fafc; color: #1e293b; margin: 0; padding: 40px; }
-        .container { max-width: 1200px; margin: 0 auto; }
+        .container { max-width: 1000px; margin: 0 auto; }
         h1 { text-align: center; color: #0f172a; margin-bottom: 50px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; }
-        .process-card { background: white; border: 1px solid #cbd5e1; border-radius: 12px; padding: 30px; display: flex; flex-direction: column; align-items: center; gap: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: transform 0.2s, box-shadow 0.2s; border-top: 4px solid #3b82f6; cursor: pointer; }
-        .process-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px rgba(0,0,0,0.1); }
-        .icon { font-size: 48px; }
-        .title { font-size: 18px; font-weight: 600; text-align: center; }
-        .description { font-size: 13px; color: #64748b; text-align: center; }
         
-        .proc-hr { border-top-color: #ef4444; }
-        .proc-fin { border-top-color: #10b981; }
-        .proc-mkt { border-top-color: #f59e0b; }
-        .proc-it { border-top-color: #8b5cf6; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 25px; }
+        
+        .map-card { 
+            background: white; 
+            border: 1px solid #cbd5e1; 
+            border-radius: 12px; 
+            padding: 30px 20px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            gap: 15px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
+            transition: transform 0.2s, box-shadow 0.2s; 
+            border-top: 6px solid #FFB81C; 
+            cursor: pointer;
+            text-decoration: none;
+            color: #1e293b;
+        }
+        
+        .map-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px rgba(0,0,0,0.1); border-color: #eab308; }
+        
+        .icon { font-size: 40px; }
+        .label { font-size: 16px; font-weight: 600; text-align: center; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>Principali Processi Aziendali</h1>
+    <h1>DUE Maps</h1>
     <div class="grid">
-        <div class="process-card proc-hr">
-            <span class="icon">👥</span>
-            <span class="title">Risorse Umane</span>
-            <span class="description">Gestione del ciclo di vita del dipendente, payroll e formazione.</span>
-        </div>
-        <div class="process-card proc-fin">
-            <span class="icon">📊</span>
-            <span class="title">Amministrazione & Finanza</span>
-            <span class="description">Contabilità generale, controllo di gestione e tesoreria.</span>
+        <div class="map-card" onclick="inviaMessaggioNavigazione('#')"><span class="icon">🤝</span><span class="label">CRM</span></div>
+        <div class="map-card" onclick="inviaMessaggioNavigazione('#')"><span class="icon">📊</span><span class="label">AFC</span></div>
+        <div class="map-card" onclick="inviaMessaggioNavigazione('#')"><span class="icon">🛒</span><span class="label">Procurement</span></div>
+        
+        <div class="map-card" onclick="inviaMessaggioNavigazione('https://diapdemo.formula.it:8282/due/#/home/desktop/MP%20-%20Order%20to%20cash')">
+            <span class="icon">📢</span><span class="label">Vendite</span>
         </div>
         
-        <div class="process-card proc-mkt" onclick="inviaMessaggioNavigazione('https://diapdemo.formula.it:8282/due/#/home/desktop/MP%20-%20Order%20to%20cash')">
-            <span class="icon">📢</span>
-            <span class="title">Marketing & Vendite</span>
-            <span class="description">Gestione lead, campagne promozionali e ciclo attivo.</span>
+        <div class="map-card" onclick="inviaMessaggioNavigazione('#')"><span class="icon">⚙️</span><span class="label">Produzione</span></div>
+        <div class="map-card" onclick="inviaMessaggioNavigazione('#')"><span class="icon">📦</span><span class="label">Magazzino</span></div>
+        
+        <div class="map-card" onclick="inviaMessaggioNavigazione('https://diapdemo.formula.it:8282/due/#/home/desktop/MA%20-%20Analysis')">
+            <span class="icon">📈</span><span class="label">Analysis</span>
         </div>
 
-        <div class="process-card">
-            <span class="icon">📦</span>
-            <span class="title">Logistica & Supply Chain</span>
-            <span class="description">Gestione magazzino, ordini fornitori e spedizioni.</span>
-        </div>
-        <div class="process-card proc-it">
-            <span class="icon">⚙️</span>
-            <span class="title">Produzione & IT</span>
-            <span class="description">Pianificazione produzione e manutenzione sistemi informativi.</span>
+        <a class="map-card" href="https://arxivargrp.formula.it/arxivarnextwebportal/Account/Login" target="_blank">
+            <span class="icon">📁</span><span class="label">Documentale</span>
+        </a>
+
+        <div class="map-card" onclick="inviaMessaggioNavigazione('#')"><span class="icon">🔧</span><span class="label">Settings</span></div>
+        
+        <div class="map-card" onclick="inviaMessaggioNavigazione('https://diapdemo.formula.it:8282/due/#/home/desktop/MP%20-%20System%20Health')">
+            <span class="icon">🏥</span><span class="label">System Health</span>
         </div>
     </div>
 </div>
 
 <script>
     function inviaMessaggioNavigazione(percorsoTarget) {
+        if(percorsoTarget === '#') return;
         let routePath = percorsoTarget.includes('#') ? percorsoTarget.split('#')[1] : percorsoTarget;
         const payload = { type: 'ROUTER_NAVIGATION', action: 'navigate', url: percorsoTarget, route: routePath };
         window.parent.postMessage(payload, '*');
