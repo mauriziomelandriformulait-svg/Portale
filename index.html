@@ -9,7 +9,7 @@
         .container { max-width: 1200px; margin: 0 auto; }
         h1 { text-align: center; color: #0f172a; margin-bottom: 50px; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; }
-        .process-card { background: white; border: 1px solid #cbd5e1; border-radius: 12px; padding: 30px; display: flex; flex-direction: column; align-items: center; gap: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: transform 0.2s, box-shadow 0.2s; border-top: 4px solid #3b82f6; text-decoration: none; color: inherit; }
+        .process-card { background: white; border: 1px solid #cbd5e1; border-radius: 12px; padding: 30px; display: flex; flex-direction: column; align-items: center; gap: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: transform 0.2s, box-shadow 0.2s; border-top: 4px solid #3b82f6; cursor: pointer; }
         .process-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px rgba(0,0,0,0.1); }
         .icon { font-size: 48px; }
         .title { font-size: 18px; font-weight: 600; text-align: center; }
@@ -37,12 +37,11 @@
             <span class="description">Contabilità generale, controllo di gestione e tesoreria.</span>
         </div>
         
-        <!-- Card modificata con link -->
-        <a href="https://diapdemo.formula.it:8282/due/#/home/desktop/MP%20-%20Order%20to%20cash" class="process-card proc-mkt" style="text-decoration: none;">
+        <div class="process-card proc-mkt" onclick="inviaMessaggioNavigazione('https://diapdemo.formula.it:8282/due/#/home/desktop/MP%20-%20Order%20to%20cash')">
             <span class="icon">📢</span>
             <span class="title">Marketing & Vendite</span>
             <span class="description">Gestione lead, campagne promozionali e ciclo attivo.</span>
-        </a>
+        </div>
 
         <div class="process-card">
             <span class="icon">📦</span>
@@ -56,6 +55,14 @@
         </div>
     </div>
 </div>
+
+<script>
+    function inviaMessaggioNavigazione(percorsoTarget) {
+        let routePath = percorsoTarget.includes('#') ? percorsoTarget.split('#')[1] : percorsoTarget;
+        const payload = { type: 'ROUTER_NAVIGATION', action: 'navigate', url: percorsoTarget, route: routePath };
+        window.parent.postMessage(payload, '*');
+    }
+</script>
 
 </body>
 </html>
