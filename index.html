@@ -12,10 +12,29 @@
         .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
         @media (max-width: 850px) { .grid { grid-template-columns: repeat(2, 1fr); } }
         
-        .map-card { background: white; border: 1px solid #cbd5e1; border-radius: 12px; padding: 25px 15px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: transform 0.2s; border-top: 6px solid #FFCC00; cursor: pointer; text-decoration: none; color: #1e293b; }
-        .map-card:hover { transform: translateY(-5px); border-color: #eab308; }
+        .map-card { 
+            background: white; 
+            border: 1px solid #cbd5e1; 
+            border-radius: 12px; 
+            padding: 25px 15px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            gap: 12px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
+            transition: transform 0.2s; 
+            /* Modifica: bordo inferiore giallo 10px */
+            border-bottom: 10px solid #FFCC00; 
+            cursor: pointer; 
+            text-decoration: none; 
+            color: #1e293b; 
+        }
+        .map-card:hover { transform: translateY(-5px); border-bottom-color: #eab308; }
         .icon { width: 32px; height: 32px; fill: none; stroke: currentColor; stroke-width: 1.5; }
-        .label { font-size: 14px; font-weight: 600; text-align: center; }
+        
+        /* Modifica: font-weight bold */
+        .label { font-size: 14px; font-weight: 700; text-align: center; }
 
         .sidebar-icon { cursor: pointer; color: #1e293b; transition: color 0.2s; }
         .sidebar-icon:hover { color: #FFCC00; }
